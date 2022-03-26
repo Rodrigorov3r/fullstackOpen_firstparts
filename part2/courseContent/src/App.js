@@ -1,4 +1,6 @@
 import Course from './Components/Course';
+import React from 'react';
+import { ReactDOM } from 'react';
 
 const App = () => {
   const course = {
@@ -22,7 +24,14 @@ const App = () => {
       },
     ],
   };
-  return <Course course={course} />;
+
+  return (
+    <Course
+      key={course.id}
+      name={course.name}
+      parts={course.parts} //array de objetos
+    />
+  );
 };
 
 export default App;
