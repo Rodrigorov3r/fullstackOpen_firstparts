@@ -13,6 +13,8 @@ const Course = ({ name, parts }) => {
 
   const totalEjercicios = sumaEjercios();
 
+  //pro acumulación
+
   return (
     <>
       <header>
