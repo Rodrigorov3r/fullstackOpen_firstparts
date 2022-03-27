@@ -22,12 +22,17 @@ const App = () => {
         exercises: 14,
         id: 3,
       },
+      {
+        name: 'Redux',
+        exercises: 8,
+        id: 4,
+      },
     ],
   };
 
+
   return (
     <Course
-      key={course.id}
       name={course.name}
       parts={course.parts} //array de objetos
     />
