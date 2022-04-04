@@ -2,18 +2,12 @@ import React from 'react';
 
 const Course = ({ name, parts }) => {
   //suma de ejercicios
-  const sumaEjercios = () => {
-    let resul = 0;
 
-    parts.map((e) => {
-      resul += e.exercises;
-    });
-    return resul;
-  };
+  const mapeoEjercicios = parts.map((x) => x.exercises);
+  console.log(mapeoEjercicios);
 
-  const totalEjercicios = sumaEjercios();
-
-  //pro acumulación
+  let totalEjercicios = mapeoEjercicios.reduce((a, b) => a + b);
+  console.log(totalEjercicios);
 
   return (
     <>
