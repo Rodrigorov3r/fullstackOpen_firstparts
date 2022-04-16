@@ -1,27 +1,31 @@
 import React from 'react';
 
-const Course = ({ name, parts }) => {
-  //suma de ejercicios
+const Header = ({ course }) => <h1>{course.name}</h1>;
 
-  const mapeoEjercicios = parts.map((x) => x.exercises);
-  console.log(mapeoEjercicios);
+const Parts = ({ course }) =>
+  course.parts.map((part) => (
+    <p key={part.key}>
+      {part.name} {part.exercises}
+    </p>
+  ));
 
-  let totalEjercicios = mapeoEjercicios.reduce((a, b) => a + b);
-  console.log(totalEjercicios);
+const Totales = ({ course }) => {
+  const arr = [];
+  course.parts.map((part) => arr.push(part.exercises));
+  const total = arr.reduce((a, b) => a + b);
+  return (
+    <p>
+      <strong>Total of exercises is {total}</strong>
+    </p>
+  );
+};
 
+const Course = ({ course }) => {
   return (
     <>
-      <header>
-        <h2>{name}</h2>
-      </header>
-      {parts.map((e) => (
-        <p key={e.id}>
-          {e.name}: {e.exercises}
-        </p>
-      ))}
-      <p>
-        <strong>Total of {totalEjercicios} exercises</strong>
-      </p>
+      <Header course={course} />
+      <Parts course={course} />
+      <Totales course={course} />
     </>
   );
 };
